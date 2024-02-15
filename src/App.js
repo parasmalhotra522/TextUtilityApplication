@@ -57,10 +57,11 @@ function App() {
         <Route exact path='/' element={
           <TextForm showAlert={showAlert}
           colorCode={colorCode}
-          heading="Enter Text to analyze below" mode={mode} />}>
+          heading="Try TextUtils - Word Counter, Character Counter, Remove extra spaces" 
+          mode={mode} />}>
         </Route>
 
-        <Route exact path='/about' element={<AboutUs />}></Route>
+        <Route exact path='/about' element={<AboutUs props={mode}/>}></Route>
         
         </Routes>
        {/* colorCode='#042743' */}

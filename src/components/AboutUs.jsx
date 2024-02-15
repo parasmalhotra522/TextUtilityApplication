@@ -1,36 +1,42 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 
-export default function AboutUs() {
+export default function AboutUs({props}) {
 
+    console.log("Checking the props", props);
     const [myStyles, setStyles] = useState({
-        backgroundColor:'#fff',
-        color:'#000',
-        border:'2px solid #fff'
+        backgroundColor:props === 'light' ? '#fff' : '#042743',
+        color: props === 'light' ? '#000' : '#fff',
+        border:'2px solid #fff' 
     });
+
+
     const [btnText, setBtnText] = useState("Enable Dark Mode");
 
-    // const myStyles = {
-    //     backgroundColor:'#000',
-    //     color:'#fff'
-    // }
+    useEffect(() => {
+        toggleDarkMode();
+    }, [props]);
+
 
     const toggleDarkMode = () => {
-        if (myStyles.backgroundColor === '#000') {
+        if (props === 'light') {
             setBtnText("Enable Dark Mode");
             setStyles({
                 backgroundColor:'#fff',
-                color:'#000'
+                color: '#000',
+              
             });
           
         } else {
             setStyles({
-                backgroundColor:'#000',
-                color:'#fff'
+                backgroundColor:'#042743',
+                color: '#fff',
+                borderColor:'#fff'
             });
             setBtnText("Enable Light Mode");
             
         }
     }
+
 
   return (
     <div>
@@ -81,11 +87,11 @@ export default function AboutUs() {
         </div>
         </div>
    
-        <div className='container'>
+        {/* <div className='container'>
             <button className="btn btn-primary my-3"
             onClick={toggleDarkMode}
             >{btnText}</button>
-        </div>
+        </div> */}
         </div>
     </div>
    
