@@ -92,9 +92,9 @@ export default function TextForm(props) {
             <div className="my-3">
                 <h3 className={checkMode}>Your Text Summary</h3>
                 <p className={`form-control ${checkMode}`}
-                    style={{ backgroundColor: props.colorCode }}>{text.split(' ').filter((element)=>{return element.length !== 0}).length } words and {text.length}   characters</p>
+                    style={{ backgroundColor: props.colorCode }}>{text.split(/\s+/).filter((element)=>{return element.length !== 0}).length } words and {text.length}   characters</p>
                 <p className={`form-control ${checkMode}`}
-                    style={{ backgroundColor: props.colorCode }}>{0.008 * text.split(' ').length} Minutes read</p>
+                    style={{ backgroundColor: props.colorCode }}>{0.008 * text.split(/\s+/).length} Minutes read</p>
                 <h2 className={checkMode}
                     style={{ backgroundColor: props.colorCode }}
                 >Preview</h2>
